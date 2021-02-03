@@ -103,10 +103,10 @@ class FloatLabelTextField extends Component {
           <View style={[styles.paddingView, this.leftPadding()]} />
           <View style={[styles.fieldContainer, this.withBorder()]}>
             <FloatingLabel visible={this.state.text}>
-              <Text style={[styles.fieldLabel, this.labelStyle()]}>{this.placeholderValue()}</Text>
+              <Text style={[styles.fieldLabel, this.labelStyle(), this.props.labelStyle]}>{this.placeholderValue()}</Text>
             </FloatingLabel>
             <TextFieldHolder withValue={this.state.text}>
-              <TextInput {...this.props}
+              <TextInput 
                 ref='input'
                 underlineColorAndroid="transparent"
                 style={[styles.valueText]}
@@ -116,6 +116,7 @@ class FloatLabelTextField extends Component {
                 onFocus={() => this.setFocus()}
                 onBlur={() => this.unsetFocus()}
                 onChangeText={(value) => this.setText(value)}
+                {...this.props}
                 />
             </TextFieldHolder>
           </View>
